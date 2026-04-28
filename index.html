@@ -1,15 +1,298 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>newman-hub</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <main>
-      <h1>newman-hub</h1>
-      <p>Stitch clickdummy goes here.</p>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galerie Newman — Exhibition Space</title>
+  <meta name="description" content="Newman Artist Collective — a curated digital gallery celebrating the friction between the digital and the tactile." />
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif:wght@400;700&family=Space+Grotesk:wght@400;700&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary":                    "#000000",
+            "on-primary":                 "#ffffff",
+            "primary-container":          "#1b1b1b",
+            "on-primary-container":       "#848484",
+            "primary-fixed":              "#e2e2e2",
+            "primary-fixed-dim":          "#c6c6c6",
+            "secondary":                  "#506600",
+            "on-secondary":               "#ffffff",
+            "secondary-container":        "#c1f100",
+            "on-secondary-container":     "#546b00",
+            "secondary-fixed":            "#c3f400",
+            "secondary-fixed-dim":        "#abd600",
+            "tertiary":                   "#000000",
+            "on-tertiary":                "#ffffff",
+            "tertiary-container":         "#3f001a",
+            "on-tertiary-container":      "#ff077f",
+            "tertiary-fixed":             "#ffd9e1",
+            "tertiary-fixed-dim":         "#ffb1c4",
+            "error":                      "#ba1a1a",
+            "on-error":                   "#ffffff",
+            "error-container":            "#ffdad6",
+            "on-error-container":         "#93000a",
+            "surface":                    "#f9f9f7",
+            "surface-dim":                "#dadad8",
+            "surface-bright":             "#f9f9f7",
+            "surface-container-lowest":   "#ffffff",
+            "surface-container-low":      "#f4f4f2",
+            "surface-container":          "#eeeeec",
+            "surface-container-high":     "#e8e8e6",
+            "surface-container-highest":  "#e2e3e1",
+            "on-surface":                 "#1a1c1b",
+            "on-surface-variant":         "#4c4546",
+            "inverse-surface":            "#2f3130",
+            "inverse-on-surface":         "#f1f1ef",
+            "outline":                    "#7e7576",
+            "outline-variant":            "#cfc4c5",
+            "background":                 "#f9f9f7",
+            "on-background":              "#1a1c1b"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg:      "0.5rem",
+            xl:      "0.75rem",
+            full:    "9999px"
+          },
+          spacing: {
+            "stack-lg":    "64px",
+            "stack-sm":    "12px",
+            "gutter":      "24px",
+            "base":        "8px",
+            "margin-edge": "40px"
+          },
+          fontFamily: {
+            "accent-quote":  ["Newsreader"],
+            "display-lg":    ["Newsreader"],
+            "body-reg":      ["Noto Serif"],
+            "headline-md":   ["Newsreader"],
+            "label-shouty":  ["Space Grotesk"]
+          },
+          fontSize: {
+            "accent-quote": ["24px",  { lineHeight: "1.4",  fontWeight: "400" }],
+            "display-lg":   ["72px",  { lineHeight: "1.1",  letterSpacing: "-0.02em", fontWeight: "600" }],
+            "body-reg":     ["18px",  { lineHeight: "1.6",  fontWeight: "400" }],
+            "headline-md":  ["40px",  { lineHeight: "1.2",  fontWeight: "500" }],
+            "label-shouty": ["14px",  { lineHeight: "1",    letterSpacing: "0.05em", fontWeight: "700" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-background font-body-reg text-on-surface">
+
+  <!-- Top Nav -->
+  <header class="bg-stone-50 text-black font-serif italic tracking-tight border-b-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sticky top-0 z-50">
+    <div class="flex justify-between items-center w-full px-6 py-4">
+      <div class="flex items-center gap-4">
+        <span class="text-2xl font-black text-black uppercase not-italic tracking-tight">Galerie Newman</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-8">
+        <a class="text-zinc-600 font-medium hover:skew-x-1 hover:text-black transition-transform active:translate-y-1" href="#">Explore</a>
+        <a class="text-zinc-600 font-medium hover:skew-x-1 hover:text-black transition-transform active:translate-y-1" href="#">Opportunities</a>
+        <a class="text-zinc-600 font-medium hover:skew-x-1 hover:text-black transition-transform active:translate-y-1" href="#">Archive</a>
+        <a class="text-black relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-2 after:bg-lime-400 after:-z-10 hover:skew-x-1 transition-transform active:translate-y-1" href="#">Exhibition Space</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <button class="material-symbols-outlined text-2xl active:scale-95 transition-all">account_circle</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex">
+
+    <!-- Side Nav (desktop) -->
+    <aside class="fixed left-0 top-0 h-full z-40 hidden lg:flex flex-col gap-4 p-4 bg-white border-r-2 border-black font-mono uppercase text-sm tracking-widest graph-paper w-64 pt-24">
+      <div class="mb-8 px-4">
+        <p class="font-black text-lg text-black">Artist Studio</p>
+        <p class="text-[10px] text-zinc-500">Creative Hub</p>
+      </div>
+      <nav class="flex flex-col gap-2">
+        <a class="text-zinc-800 px-4 py-2 flex items-center gap-3 hover:bg-zinc-100 hover:translate-x-1 transition-transform active:scale-95" href="#">
+          <span class="material-symbols-outlined">forum</span> General Chat
+        </a>
+        <a class="text-zinc-800 px-4 py-2 flex items-center gap-3 hover:bg-zinc-100 hover:translate-x-1 transition-transform active:scale-95" href="#">
+          <span class="material-symbols-outlined">palette</span> WIP Feed
+        </a>
+        <a class="text-zinc-800 px-4 py-2 flex items-center gap-3 hover:bg-zinc-100 hover:translate-x-1 transition-transform active:scale-95" href="#">
+          <span class="material-symbols-outlined">auto_awesome</span> Opportunities
+        </a>
+        <a class="bg-pink-500 text-white -rotate-2 scale-105 px-4 py-1 inline-flex shadow-[2px_2px_0px_black] items-center gap-3 transition-transform active:scale-95" href="#">
+          <span class="material-symbols-outlined">gallery_thumbnail</span> Exhibition Space
+        </a>
+        <a class="text-zinc-800 px-4 py-2 flex items-center gap-3 hover:bg-zinc-100 hover:translate-x-1 transition-transform active:scale-95" href="#">
+          <span class="material-symbols-outlined">help_center</span> Help &amp; Advice
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 lg:ml-64 graph-paper min-h-screen pb-20">
+
+      <!-- Hero: Current Exhibition -->
+      <section class="px-margin-edge mt-12 mb-stack-lg">
+        <div class="relative group">
+          <div class="absolute -top-10 -right-4 bg-secondary-fixed text-primary px-6 py-2 font-label-shouty uppercase -rotate-6 shadow-[4px_4px_0px_black] z-20">
+            Live Now
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-end">
+            <div class="md:col-span-7 relative">
+              <div class="border-[2px] border-black p-2 bg-white shadow-[8px_8px_0px_black] hover:translate-x-[-4px] hover:translate-y-[-4px] transition-transform">
+                <img
+                  alt="Visceral Geometries — large-scale abstract expressionist oil painting with thick impasto brushstrokes in vibrant ochre, deep crimson, and charcoal grey"
+                  class="w-full h-[600px] object-cover"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxlxVlw-2HHqyvQ_cn8aFYvQH4VyYALvlHNu1PSc14Gz6V-7AdbMXzEuqDc2gprmDEXKaCsoDBE0Jkod5jfDCFE88oGvnD2l9wsM2PZ87JGTwzqTRfhmBUzSkXDjSymJAv0Sq-QqTIhVCIO5P9K55PTXJzuxw4NP6NPe1-yhCWJTiK2xwF3icwCzP8pi0gBSzqjYQvIOUaThUuH2bNBtWASUjgtLR6BqqV9RuMB95H9rGAZDpiPTolh7fte70LQYez6_nXoLv0ojk"
+                />
+              </div>
+              <div class="absolute -bottom-6 -left-6 bg-tertiary text-white p-4 font-label-shouty uppercase rotate-1 shadow-[4px_4px_0px_#ff077f]">
+                Artist: Elara Vance
+              </div>
+            </div>
+            <div class="md:col-span-5 pb-8">
+              <h1 class="font-display-lg text-display-lg mb-4">
+                <span class="neon-highlight italic">Visceral</span><br />Geometries
+              </h1>
+              <p class="font-body-reg text-body-reg text-on-surface-variant max-w-sm mb-8">
+                A raw exploration of urban structural decay through the lens of neo-expressionism. Vance's work challenges the grid of the city with the chaos of the hand.
+              </p>
+              <button class="bg-primary text-white font-label-shouty uppercase px-8 py-4 shadow-[4px_4px_0px_#c1f100] hover:shadow-[2px_2px_0px_#c1f100] hover:translate-x-1 hover:translate-y-1 transition-all">
+                View Collection
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Curator's Note -->
+      <section class="px-margin-edge my-stack-lg flex justify-center">
+        <div class="max-w-2xl w-full bg-[#fdfcf0] p-12 border border-[#d1cfb9] shadow-[1px_1px_10px_rgba(0,0,0,0.05)] relative rotate-1">
+          <div class="absolute -top-4 left-1/4 w-20 h-6 bg-white/60 border-x border-black/10 -rotate-1"></div>
+          <div class="absolute -bottom-4 right-1/4 w-24 h-7 bg-white/40 border-x border-black/10 rotate-2"></div>
+          <div class="font-label-shouty text-[10px] text-zinc-400 mb-8 border-b border-zinc-200 pb-2">
+            OFFICE OF THE CHIEF CURATOR // INTERNAL MEMO
+          </div>
+          <h2 class="font-accent-quote text-accent-quote mb-6 italic">A Note on Modern Friction</h2>
+          <div class="space-y-4 font-body-reg text-zinc-800 leading-relaxed">
+            <p>This season at Galerie Newman, we are intentionally leaning into the <em>friction</em> between the digital and the tactile. The artists selected for the spring cycle represent a movement back toward the physical artifact.</p>
+            <p>We see it in the way Elara Vance tears her canvases before re-stitching them. We see it in the intentional "errors" of the studio process. We invite you to touch the textures (figuratively) and embrace the curated chaos.</p>
+          </div>
+          <div class="mt-12 flex justify-between items-end">
+            <div>
+              <p class="font-accent-quote italic">Warmly,</p>
+              <p class="font-label-shouty uppercase mt-1">Julian Newman</p>
+            </div>
+            <div class="bg-error text-white p-2 text-xs font-bold uppercase rotate-12 border-2 border-dashed border-white">
+              Approved
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Upcoming Shows -->
+      <section class="px-margin-edge mt-stack-lg">
+        <div class="flex items-baseline gap-4 mb-12">
+          <h2 class="font-display-lg text-4xl uppercase tracking-tighter">Upcoming</h2>
+          <div class="h-[2px] flex-1 bg-black"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+
+          <div class="group">
+            <div class="relative border-2 border-black aspect-[3/4] overflow-hidden mb-4 shadow-[6px_6px_0px_#ffb1c4] group-hover:shadow-[10px_10px_0px_#ffb1c4] group-hover:-translate-y-1 group-hover:-translate-x-1 transition-all">
+              <img
+                alt="Soft Hardness — close-up of a modern sculpture made of white plaster and rough industrial felt with dramatic shadows and minimalist lighting"
+                class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqpPt1s5aKJAr98BRAUz520thH18LbvmBSNWuQiFQgJmq2FpcBfIrgHaBelg1r_Nl1wrgubfKlsUsAFIR7wV7K_YCrKumiXZoaxSseS3vH5ZFxLT25L5Npt8wXv5yebq8BuWjuJkto72tudv4nYk6ctQA2AHNMi_Q76t3Oa0Mw903JbHOj4kB7DmfDQlM-DjIvHpRt8-QbpEdQv2f3EqZv8wjPUfQBsIk3UANrEn8RFdBsG6YcpQxtfu5rCrClUixaoCaNtQkXtuk"
+              />
+              <div class="absolute top-4 left-4 bg-black text-white font-label-shouty px-2 py-1 text-xs">
+                MAY 12 – JUN 01
+              </div>
+            </div>
+            <h3 class="font-headline-md text-2xl group-hover:neon-highlight inline-block transition-all">Soft Hardness</h3>
+            <p class="font-label-shouty text-xs text-zinc-500 mt-2">MARCUS CHEN // SCULPTURE</p>
+          </div>
+
+          <div class="group">
+            <div class="relative border-2 border-black aspect-[3/4] overflow-hidden mb-4 shadow-[6px_6px_0px_#abd600] group-hover:shadow-[10px_10px_0px_#abd600] group-hover:-translate-y-1 group-hover:-translate-x-1 transition-all rotate-1">
+              <img
+                alt="Silicon Souls — abstract digital art with neon glitch effects, vibrant magenta and cyan lines over a dark grainy background"
+                class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuANuSxztzhArzmdIjQsUWjd7FBWkZoSW0kvPpqqKfnKxrz-0ZBNd1iJnEV55XCkBcrqRmBqtkw_EwSt91DuDS8wOc_INPd4vMCzFc9S7OC6WKnpIrjVfcMu1ejTp8qjAFP6NfmYCwg-EGCB7xlrLxl8k_YnQNjlln9UlfSI_LpN_F3aQCJV2Y77RDvIFJs82wwEc6EiPUIqZzaiN4JEjX-8aeTZ0onG9QnTPqLzlwrz4c49lCTYKGCenF043-_XkeHVC9JgRYQzE34"
+              />
+              <div class="absolute top-4 left-4 bg-black text-white font-label-shouty px-2 py-1 text-xs">
+                JUN 15 – JUL 20
+              </div>
+            </div>
+            <h3 class="font-headline-md text-2xl group-hover:neon-highlight inline-block transition-all">Silicon Souls</h3>
+            <p class="font-label-shouty text-xs text-zinc-500 mt-2">AI-V1 // GENERATIVE MEDIA</p>
+          </div>
+
+          <div class="group">
+            <div class="relative border-2 border-black aspect-[3/4] overflow-hidden mb-4 shadow-[6px_6px_0px_#000000] group-hover:shadow-[10px_10px_0px_#000000] group-hover:-translate-y-1 group-hover:-translate-x-1 transition-all -rotate-1">
+              <img
+                alt="Identity Crisis — moody high-contrast portrait of a person with colorful paint splashes across their face and clothing against a deep navy background"
+                class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_pTQKmbpTz9ZispAMqY9npIy-IMP2MY1XSE1rVrxoQDzccmHi_paVg08cCfceXcqaY3a0sHRG1aviUaDzUSNPTY-bG9ze7b7TzwwX74DwSIUA5WwYEpXP2IyYc37or6S-FqbfJs8NISyWG-cTln2w5oBpdy078XGu-0qFp9YLwoDTRH3A_cR-uh3N3VieAtBHYyaxDkRdhvILXkgUMT4DayfE92NS0MImbegIu-6bJYv-uHfhtdYeTYSFtgrA4h0BK4grFm0wv0k"
+              />
+              <div class="absolute top-4 left-4 bg-black text-white font-label-shouty px-2 py-1 text-xs">
+                JUL 28 – AUG 15
+              </div>
+            </div>
+            <h3 class="font-headline-md text-2xl group-hover:neon-highlight inline-block transition-all">Identity Crisis</h3>
+            <p class="font-label-shouty text-xs text-zinc-500 mt-2">SARAH JENKINS // PHOTOGRAPHY</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Submit CTA -->
+      <section class="px-margin-edge mt-stack-lg mb-12">
+        <div class="bg-secondary-container border-4 border-black p-12 flex flex-col items-center text-center relative overflow-hidden">
+          <span class="material-symbols-outlined absolute -top-10 -left-10 text-[200px] opacity-10 rotate-12">palette</span>
+          <span class="material-symbols-outlined absolute -bottom-10 -right-10 text-[200px] opacity-10 -rotate-12">auto_awesome</span>
+          <div class="z-10">
+            <h2 class="font-display-lg text-5xl mb-4">Your studio <span class="italic underline">is</span> the gallery.</h2>
+            <p class="font-body-reg max-w-lg mx-auto mb-8 text-on-secondary-container">
+              We are always looking for the next disruption. Submit your portfolio for the Fall/Winter independent showcase.
+            </p>
+            <button class="bg-primary text-white font-label-shouty uppercase px-12 py-6 text-xl shadow-[8px_8px_0px_#ff077f] hover:shadow-[4px_4px_0px_#ff077f] hover:translate-x-1 hover:translate-y-1 transition-all active:scale-95">
+              Submit Your Work
+            </button>
+          </div>
+        </div>
+      </section>
+
     </main>
-  </body>
+  </div>
+
+  <!-- Mobile Bottom Nav -->
+  <nav class="md:hidden fixed bottom-0 left-0 w-full bg-white border-t-2 border-black flex justify-around py-4 z-50">
+    <a class="flex flex-col items-center gap-1 text-zinc-400" href="#">
+      <span class="material-symbols-outlined">explore</span>
+      <span class="text-[10px] uppercase font-bold">Explore</span>
+    </a>
+    <a class="flex flex-col items-center gap-1 text-black" href="#">
+      <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">gallery_thumbnail</span>
+      <span class="text-[10px] uppercase font-bold">Shows</span>
+    </a>
+    <a class="flex flex-col items-center gap-1 text-zinc-400" href="#">
+      <span class="material-symbols-outlined">auto_awesome</span>
+      <span class="text-[10px] uppercase font-bold">Apply</span>
+    </a>
+    <a class="flex flex-col items-center gap-1 text-zinc-400" href="#">
+      <span class="material-symbols-outlined">account_circle</span>
+      <span class="text-[10px] uppercase font-bold">Profile</span>
+    </a>
+  </nav>
+
+</body>
 </html>
