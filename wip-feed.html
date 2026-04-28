@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Galerie Newman — WIP Feed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&amp;family=Noto+Serif:wght@400;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#000000",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed": "#161e00",
+                    "error": "#ba1a1a",
+                    "surface": "#f9f9f7",
+                    "inverse-primary": "#c6c6c6",
+                    "inverse-surface": "#2f3130",
+                    "tertiary-fixed-dim": "#ffb1c4",
+                    "on-tertiary-container": "#ff077f",
+                    "primary-fixed": "#e2e2e2",
+                    "outline": "#7e7576",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed-variant": "#3c4d00",
+                    "surface-container": "#eeeeec",
+                    "on-tertiary-fixed": "#3f001a",
+                    "on-secondary-container": "#546b00",
+                    "surface-container-high": "#e8e8e6",
+                    "secondary-container": "#c1f100",
+                    "on-tertiary-fixed-variant": "#8f0044",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "on-primary-container": "#848484",
+                    "on-primary-fixed": "#1b1b1b",
+                    "surface-tint": "#5e5e5e",
+                    "secondary": "#506600",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#1a1c1b",
+                    "tertiary-container": "#3f001a",
+                    "surface-bright": "#f9f9f7",
+                    "surface-dim": "#dadad8",
+                    "on-primary-fixed-variant": "#474747",
+                    "surface-variant": "#e2e3e1",
+                    "surface-container-low": "#f4f4f2",
+                    "on-surface-variant": "#4c4546",
+                    "secondary-fixed-dim": "#abd600",
+                    "surface-container-highest": "#e2e3e1",
+                    "error-container": "#ffdad6",
+                    "on-primary": "#ffffff",
+                    "tertiary": "#000000",
+                    "tertiary-fixed": "#ffd9e1",
+                    "primary-container": "#1b1b1b",
+                    "secondary-fixed": "#c3f400",
+                    "on-background": "#1a1c1b",
+                    "background": "#f9f9f7",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#cfc4c5",
+                    "inverse-on-surface": "#f1f1ef"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "64px",
+                    "gutter": "24px",
+                    "base": "8px",
+                    "stack-sm": "12px",
+                    "margin-edge": "40px"
+            },
+            "fontFamily": {
+                    "accent-quote": ["Newsreader"],
+                    "display-lg": ["Newsreader"],
+                    "body-reg": ["Noto Serif"],
+                    "headline-md": ["Newsreader"],
+                    "label-shouty": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "accent-quote": ["24px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-reg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["40px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "label-shouty": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tape-effect {
+            position: relative;
+        }
+        .tape-effect::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-1deg);
+            width: 80px;
+            height: 24px;
+            background: rgba(214, 211, 209, 0.4);
+            backdrop-filter: blur(1px);
+            z-index: 10;
+            clip-path: polygon(0% 15%, 10% 0%, 90% 0%, 100% 15%, 100% 85%, 90% 100%, 10% 100%, 0% 85%);
+        }
+        .studio-grid {
+            background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-reg studio-grid min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-stone-50 dark:bg-zinc-950 text-black dark:text-white font-serif italic tracking-tight border-b-2 border-black dark:border-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex justify-between items-center w-full px-6 py-4 fixed top-0 z-50">
+<div class="flex items-center gap-4">
+<img alt="Galerie Newman Logo" class="h-10 w-auto" data-alt="minimalist architectural logo for an art gallery, sharp geometric black lines on white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbs94UKebcpF_dkviXQ-25yNTwtPQFDqY0gUOOWq_WcjyqlVT_pksMdh3zkZ1p9ltEUwYE3ezvwT2W1xQE9bMF5xnmPwruKHrGilIA9v52lHMz_awfOROjvo8Sg1H7KoA5KMThWXjlOAvIuNy-OLPibKf4FUxzZ6OiHo5bYs1aWmFVFHiQTcYjegOu3uHJE262eoD8IgnjC-CRB70XEJKuA6TD2WvImQRJoQku2gRaN8aNXP2jPysbV-48gk9GBQb3aeG9r3YbVLQ"/>
+<span class="text-2xl font-black text-black dark:text-white uppercase not-italic">Galerie Newman</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-zinc-600 dark:text-zinc-400 font-medium hover:skew-x-1 hover:text-black dark:hover:text-white transition-transform" href="#">Explore</a>
+<a class="text-zinc-600 dark:text-zinc-400 font-medium hover:skew-x-1 hover:text-black dark:hover:text-white transition-transform" href="#">Opportunities</a>
+<a class="text-zinc-600 dark:text-zinc-400 font-medium hover:skew-x-1 hover:text-black dark:hover:text-white transition-transform" href="#">Archive</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="material-symbols-outlined text-3xl">account_circle</div>
+</div>
+</header>
+<!-- SideNavBar (Desktop) -->
+<aside class="fixed left-0 top-0 h-full z-40 flex flex-col gap-4 p-4 bg-white dark:bg-zinc-900 border-r-2 border-black dark:border-white hidden md:flex w-64 pt-24" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuARuP-wNS8-VGVhIZbcAhRkKMbbWvAYFwFOBbd0KM1EaqiywhM-iddadjRNEaNVue1bgdrEh3F0IdndcYIZXK1ExAav29Vk7UHjHcfqWLcnAax2zMRxOxfPvuFjj8JnKdNEYcfkgTMV-WOwChsGJ2q5c8NZnK3f7QBf2TPSFGBMWrC7DRQRpMPifHIXgoQoG-CY7NGS_CzytqkF8bdRMjBdeSqFXNGdOti6QDCpeJqlEC20WhwlFtuvJQNWYgyH5Cn4d-UBvb2Ktf4')">
+<div class="mb-8">
+<div class="font-black text-lg text-black dark:text-white font-mono uppercase tracking-widest">Artist Studio</div>
+<div class="text-xs text-zinc-500 font-mono uppercase">Creative Hub</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="text-zinc-800 dark:text-zinc-200 px-4 py-2 flex items-center gap-3 font-mono uppercase text-sm tracking-widest hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">forum</span> General Chat
+            </a>
+<div class="bg-pink-500 text-white -rotate-2 scale-105 px-4 py-1 inline-block shadow-[2px_2px_0px_black] font-mono uppercase text-sm tracking-widest flex items-center gap-3">
+<span class="material-symbols-outlined">palette</span> WIP Feed
+            </div>
+<a class="text-zinc-800 dark:text-zinc-200 px-4 py-2 flex items-center gap-3 font-mono uppercase text-sm tracking-widest hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">auto_awesome</span> Opportunities
+            </a>
+<a class="text-zinc-800 dark:text-zinc-200 px-4 py-2 flex items-center gap-3 font-mono uppercase text-sm tracking-widest hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">gallery_thumbnail</span> Exhibition Space
+            </a>
+<a class="text-zinc-800 dark:text-zinc-200 px-4 py-2 flex items-center gap-3 font-mono uppercase text-sm tracking-widest hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">help_center</span> Help &amp; Advice
+            </a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="md:ml-64 pt-32 px-6 pb-24">
+<!-- Header Section -->
+<section class="mb-stack-lg max-w-5xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="font-display-lg text-display-lg text-primary mb-2">Work-In-Progress</h1>
+<p class="font-accent-quote text-accent-quote text-zinc-600 italic">A raw look behind the curtain of the Galerie Newman collective.</p>
+</div>
+<button class="bg-primary text-white font-label-shouty text-label-shouty uppercase px-8 py-4 shadow-[4px_4px_0px_#c3f400] active:translate-y-1 transition-all flex items-center gap-2 transform -rotate-1">
+<span class="material-symbols-outlined">add_circle</span> Submit Momentum
+                </button>
+</div>
+</section>
+<!-- WIP Bento Grid -->
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Main WIP Post 1 -->
+<article class="md:col-span-8 bg-white border-2 border-primary p-6 shadow-[8px_8px_0px_#000000] relative transform rotate-1">
+<div class="absolute -top-4 -right-4 bg-secondary-fixed text-primary font-label-shouty text-label-shouty px-4 py-2 border-2 border-primary rotate-12 shadow-[2px_2px_0px_black]">
+                    DRAFT v.04
+                </div>
+<div class="tape-effect mb-6">
+<img alt="Oil painting in progress" class="w-full aspect-video object-cover border-2 border-black" data-alt="close-up of an expressive oil painting in progress with thick impasto brushstrokes and vibrant warm tones on a canvas" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiQAxQhfjLx9oBybDFJ7BNv6udtubL3sQ7C4zyypSLYakqxKWgETNBXHxp1dOoxhlDnXgd78tM-5w7NDTdhwcUaJGJfTSv6sRZC6waHO1HQtpDHme7XH71q09EXSk17Iep2KG1I0elUivN7cVAvVte5T14NlupMpXGpW7QlQYMgz9mofLRGi_aup-irfMXXhqFNLgIkjjwI1qYBLFrtlJVeZmRgfFpHevPbfyDnFxKUhYcOMAA0e0GnFIIqhJ4T-qXBp-m650xKDA"/>
+</div>
+<div class="flex justify-between items-start mb-4">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary">Ephemeral Structures</h2>
+<p class="font-label-shouty text-label-shouty text-zinc-500 uppercase mt-1">By Elena Vance</p>
+</div>
+<div class="flex items-center gap-2 bg-stone-100 border border-black px-3 py-1 font-mono text-xs">
+<span class="material-symbols-outlined text-sm">visibility</span> 1,240 VISITS
+                    </div>
+</div>
+<p class="font-body-reg text-body-reg text-on-surface mb-6 leading-relaxed">
+                    Exploring the intersection of brutalist architecture and organic decay. This piece uses crushed concrete mixed with oil pigment to create a tactile surface that changes as it dries.
+                </p>
+<!-- Curator Insight -->
+<div class="bg-tertiary-fixed text-on-tertiary-fixed p-4 border-l-4 border-black mb-6 italic font-accent-quote text-lg">
+                    "Elena's approach to materiality here is transformative. The way the concrete-oil mix catches the light suggests a permanence that is paradoxically crumbling." — J. Newman
+                </div>
+<!-- Interactions -->
+<div class="flex flex-wrap gap-3">
+<button class="bg-zinc-100 hover:bg-secondary-container border-2 border-primary px-4 py-2 font-label-shouty text-label-shouty flex items-center gap-2 transition-colors">
+                        👁️ <span class="text-xs">42</span>
+</button>
+<button class="bg-zinc-100 hover:bg-secondary-container border-2 border-primary px-4 py-2 font-label-shouty text-label-shouty flex items-center gap-2 transition-colors">
+                        🔥 <span class="text-xs">128</span>
+</button>
+<button class="bg-zinc-100 hover:bg-secondary-container border-2 border-primary px-4 py-2 font-label-shouty text-label-shouty flex items-center gap-2 transition-colors">
+                        🤝 <span class="text-xs">15</span>
+</button>
+<button class="bg-zinc-100 hover:bg-secondary-container border-2 border-primary px-4 py-2 font-label-shouty text-label-shouty flex items-center gap-2 transition-colors">
+                        ✨ <span class="text-xs">56</span>
+</button>
+</div>
+</article>
+<!-- Sidebar Info/Post 2 -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<!-- Quick Update Card -->
+<article class="bg-secondary-fixed text-primary p-6 border-2 border-primary shadow-[4px_4px_0px_black] transform -rotate-2">
+<div class="font-label-shouty text-label-shouty uppercase border-b border-primary pb-2 mb-4">Studio Sticky</div>
+<p class="font-body-reg text-lg italic mb-4">"Currently hunting for discarded scrap metal near the docks for the 'Rust &amp; Ritual' series. If anyone has leads, DM me."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary rounded-full border-2 border-white"></div>
+<span class="font-label-shouty text-xs uppercase">Marcus Thorne</span>
+</div>
+</article>
+<!-- Small WIP Post 3 -->
+<article class="bg-white border-2 border-primary p-4 shadow-[6px_6px_0px_black] relative">
+<div class="absolute top-2 right-2 bg-pink-500 text-white font-label-shouty text-[10px] px-2 py-1 rotate-3">NEW RENDER</div>
+<img alt="Digital render WIP" class="w-full aspect-square object-cover border border-black mb-3" data-alt="abstract 3D digital render with fluid iridescent shapes and metallic textures in a minimalist white space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8muKASS4wfqvYtgwbUk0fG1vCKLdEtFl8p4kFMixJJ8C14cf57QM3bMJGpXjdwb2xfpZ3h_Bfj7AufUP1oSpb3BqirRWjwUBQ3TGj64CeikPvNfxd6JdSe_IgEUxYWqqSaK9ondpztBt9c7UmKM8y_UGnwLmT0-7NzFURaNqUTvHQRmS7MkvpRs83PU2nqZL-BHkHiv_gjMn57c-eI8ngMwwDU3g-7tBF329jJP5hNGOfom5lGaKtcLocKft31LDzc57_EjTp0oU"/>
+<h3 class="font-label-shouty text-label-shouty uppercase">Digital Ether v2</h3>
+<p class="text-sm text-zinc-600 mt-1 mb-4">Testing new light refraction shaders for the upcoming VR installation.</p>
+<div class="flex justify-between items-center">
+<div class="flex gap-2">
+<span class="text-sm">🔥 24</span>
+<span class="text-sm">✨ 8</span>
+</div>
+<span class="material-symbols-outlined text-xl">more_horiz</span>
+</div>
+</article>
+</div>
+<!-- Featured Quote Section -->
+<div class="md:col-span-12 py-12 flex justify-center">
+<div class="max-w-2xl text-center">
+<span class="material-symbols-outlined text-5xl text-secondary mb-4">format_quote</span>
+<p class="font-display-lg text-4xl italic leading-tight text-primary">"Art is never finished, only abandoned in a state of beautiful progress."</p>
+<p class="font-label-shouty text-label-shouty uppercase mt-6 tracking-widest">— Studio Manifesto</p>
+</div>
+</div>
+<!-- More WIP Grid -->
+<article class="md:col-span-4 bg-white border-2 border-primary p-4 shadow-[6px_6px_0px_black] transform rotate-1">
+<img alt="Paper sketches" class="w-full aspect-video object-cover border border-black mb-3" data-alt="collection of hand-drawn charcoal sketches and anatomical studies pinned to a cork board in an artist's studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACXZ0UpyEozKw27naXR5DP9PLdgf9w8hL5Wqj-Xc1KS84Lx8elIamyYjmH09wsvxk_4427CsJ_z1WS2LQomyT3a4F_7BXmHS4A1mn4VpINxBLFuSlN_bQy85pal9woZDu8_cpi4LvRQlucEp4xH_kGfBkersZ3eMASyWBJXJwE5iRcSZr45cW4Y-VaRriVAhgOzh-4GmsHFS0c4f6J6TFcg_Rm6RXFx1yjRFNjkXq_hDBCWulv4sp2Ay1_SzKmuktcVqwV04ngC4Y"/>
+<h3 class="font-label-shouty text-label-shouty uppercase">Anatomical Studies</h3>
+<div class="flex gap-2 mt-4">
+<button class="bg-zinc-50 border border-black px-3 py-1 text-xs font-label-shouty uppercase">👁️ 8</button>
+<button class="bg-zinc-50 border border-black px-3 py-1 text-xs font-label-shouty uppercase">🤝 2</button>
+</div>
+</article>
+<article class="md:col-span-4 bg-white border-2 border-primary p-4 shadow-[6px_6px_0px_black] transform -rotate-1">
+<img alt="Paint palettes" class="w-full aspect-video object-cover border border-black mb-3" data-alt="messy paint-splattered wooden palette with dollops of vibrant acrylic paint and mixing marks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0QnuZoM6qjqHhimSULsjy9kr2zqepl9SdVtAnweKsA_V7L4oELYA3hwgd4eBzHMMyeSqad2Gy0YP1MaF_oJ8y_lG88WIVa4x9PClyw2bFZ8JLIH5J-1kJzwmWfqDlZePVR5Nmzsc8HcVyFgtQFGr09frTK6eZdIfvaDIwk0_0y1Elcd3QwsFrk8H-yTztAC9whkJ_IP2yntkHYoCngxRQlEyCh52uNK9R62OvBBoZO_B7WNb9Xfi-9wr8VTMeuaeo9RQP19Itz3U"/>
+<h3 class="font-label-shouty text-label-shouty uppercase">Color Theory: Neon Moss</h3>
+<div class="flex gap-2 mt-4">
+<button class="bg-zinc-50 border border-black px-3 py-1 text-xs font-label-shouty uppercase">🔥 45</button>
+<button class="bg-zinc-50 border border-black px-3 py-1 text-xs font-label-shouty uppercase">✨ 12</button>
+</div>
+</article>
+<article class="md:col-span-4 bg-white border-2 border-primary p-4 shadow-[6px_6px_0px_black]">
+<img alt="Sculpture base" class="w-full aspect-video object-cover border border-black mb-3" data-alt="raw clay sculpture base with wire armature visible under soft overhead studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOryeMGvHA-wT-wAeWmjy8e8_tt99glveLGhtAfJ_SbV5X90hZbX218f-_RWlxbe07U8tG0hUiG1k6LMHnquyrAiJjaoypnR9atr_tDFzvXo3SKpVwAKRy0vUb1JaQFMNbYtV50zqUMEM2Dlt6HvOa5ycpgnv4azlqbJZUGac9-jOyDArfcnoPI9-IppAcVff6GMZCDld9KdVcTKu-ZsdXKDhycgRvC6kdMls62iE2HYhsCDpTH4jPINxhqxxV6UY5FGoEGkQow6Q"/>
+<h3 class="font-label-shouty text-label-shouty uppercase">Wire &amp; Clay Study</h3>
+<div class="flex gap-2 mt-4">
+<button class="bg-zinc-50 border border-black px-3 py-1 text-xs font-label-shouty uppercase">🤝 31</button>
+<button class="bg-zinc-50 border border-black px-3 py-1 text-xs font-label-shouty uppercase">👁️ 19</button>
+</div>
+</article>
+</div>
+</main>
+<!-- FAB for submission (Mobile/Contextual) -->
+<button class="md:hidden fixed bottom-24 right-6 bg-secondary-fixed text-primary p-4 border-2 border-primary shadow-[4px_4px_0px_black] z-50">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-white border-t-2 border-black flex justify-around items-center py-3 z-50">
+<div class="flex flex-col items-center text-zinc-400">
+<span class="material-symbols-outlined">forum</span>
+<span class="text-[10px] font-mono uppercase">Chat</span>
+</div>
+<div class="flex flex-col items-center text-pink-500 scale-110">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">palette</span>
+<span class="text-[10px] font-mono uppercase">WIP</span>
+</div>
+<div class="flex flex-col items-center text-zinc-400">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="text-[10px] font-mono uppercase">Opps</span>
+</div>
+<div class="flex flex-col items-center text-zinc-400">
+<span class="material-symbols-outlined">gallery_thumbnail</span>
+<span class="text-[10px] font-mono uppercase">Space</span>
+</div>
+</nav>
+</body></html>
